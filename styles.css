@@ -388,6 +388,42 @@ small {
     justify-content: center;
 }
 
+/* ESTILOS PARA OS GRÁFICOS - CRÍTICO */
+
+/* Garantir que o container do gráfico tenha altura */
+.chart-container {
+    height: 120px !important;
+    width: 100% !important;
+    position: relative !important;
+    margin: 1rem 0 !important;
+}
+
+/* Remover estilos que podem estar interferindo */
+.stock-chart {
+    width: 100% !important;
+    height: 100% !important;
+    display: block !important;
+}
+
+/* Garantir que o canvas dentro do container ocupe todo o espaço */
+.chart-container canvas {
+    width: 100% !important;
+    height: 100% !important;
+    display: block !important;
+}
+
+/* Estilo para quando não há dados */
+.no-chart-data {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    text-align: center;
+    padding: 1rem;
+}
+
 /* Card footer */
 .card-footer {
     display: flex;
@@ -557,6 +593,17 @@ small {
 .stocks-grid::-webkit-scrollbar-thumb {
     background-color: var(--border-color);
     border-radius: 4px;
+}
+
+.chart-placeholder {
+    height: 120px; /* Give the chart a fixed height */
+    margin-bottom: 1rem;
+    position: relative;
+}
+
+.stock-chart {
+    width: 100% !important;
+    height: 100% !important;
 }
 
 /* ====== FOOTER ====== */
