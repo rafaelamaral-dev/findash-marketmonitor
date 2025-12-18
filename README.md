@@ -9,15 +9,15 @@
 </p>
 
 <p align="center">
-  <a href="#-sobre">Sobre</a> •
-  <a href="#-funcionalidades">Funcionalidades</a> •
-  <a href="#-tecnologias">Tecnologias</a> •
-  <a href="#-como-executar">Como Executar</a> •
-  <a href="#-como-usar">Como Usar</a> •
-  <a href="#-estrutura-do-projeto">Estrutura</a> •
-  <a href="#-api">API</a> •
-  <a href="#-autor">Autor</a> •
-  <a href="#-licença">Licença</a>
+  <a href="#sobre">Sobre</a> •
+  <a href="#funcionalidades">Funcionalidades</a> •
+  <a href="#tecnologias">Tecnologias</a> •
+  <a href="#como-executar">Como Executar</a> •
+  <a href="#como-usar">Como Usar</a> •
+  <a href="#estrutura-do-projeto">Estrutura</a> •
+  <a href="#api">API</a> •
+  <a href="#autor">Autor</a> •
+  <a href="#licença">Licença</a>
 </p>
 
 <p align="center">
@@ -57,8 +57,6 @@ Com uma interface moderna e limpa, o projeto permite o monitoramento personaliza
 | Seção Hero (Desktop) | Navegação Mobile |
 | :---: | :---: |
 | ![Desktop Hero Section](assets/images/screenshot-desktop.png) | ![Mobile Navigation](assets/images/screenshot-mobile.png) |
-
----
 
 ### 📈 Visualização de Dados
 - **Cards informativos**: Exibição de preço atual, variação percentual, preço de abertura, máxima, mínima e volume
