@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FinDash - Market Monitor</title>
+    <meta name="description" content="Dashboard de monitoramento do mercado financeiro com dados em tempo real">
+    
+    <!-- Fontes do Google -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Favicon (você pode adicionar depois) -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📈</text></svg>">
+</head>
+<body>
+    <div class="container">
+        <!-- Cabeçalho -->
+        <header class="header">
+            <div class="logo">
+                <h1>📈 FinDash</h1>
+                <p class="tagline">Market Monitor</p>
+            </div>
+            <div class="header-info">
+                <div class="last-update">
+                    <span id="update-time">--:--:--</span>
+                    <small>Última atualização</small>
+                </div>
+            </div>
+        </header>
+
+        <!-- Painel de Controle -->
+        <section class="control-panel">
+            <div class="search-container">
+                <div class="input-group">
+                    <input 
+                        type="text" 
+                        id="stock-input" 
+                        placeholder="Digite o símbolo (ex: PETR4.SA, AAPL, BTCUSD)"
+                        aria-label="Símbolo da ação ou criptomoeda"
+                    >
+                    <button id="add-stock" class="btn btn-primary">
+                        <span>+ Adicionar</span>
+                    </button>
+                </div>
+                <p class="input-hint">
+                    Exemplos: PETR4.SA (Petrobras), AAPL (Apple), BTCUSD (Bitcoin)
+                </p>
+            </div>
+            
+            <div class="portfolio-summary">
+                <div class="summary-card">
+                    <h3>Resumo da Carteira</h3>
+                    <div class="summary-grid">
+                        <div class="summary-item">
+                            <span class="label">Ativos</span>
+                            <span id="total-assets" class="value">0</span>
+                        </div>
+                        <div class="summary-item">
+                            <span class="label">Variação Hoje</span>
+                            <span id="daily-change" class="value neutral">0.00%</span>
+                        </div>
+                        <div class="summary-item">
+                            <span class="label">Valor Total</span>
+                            <span id="total-value" class="value">R$ 0,00</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dashboard Principal -->
+        <main class="dashboard">
+            <div class="dashboard-header">
+                <h2>Ações Monitoradas</h2>
+                <button id="refresh-all" class="btn btn-secondary">
+                    🔄 Atualizar Tudo
+                </button>
+            </div>
+            
+            <!-- Área onde os cards das ações serão inseridos -->
+            <div id="stocks-container" class="stocks-grid">
+                <!-- Cards serão gerados dinamicamente via JavaScript -->
+                <div class="empty-state">
+                    <div class="empty-icon">📊</div>
+                    <h3>Nenhuma ação adicionada</h3>
+                    <p>Adicione símbolos acima para começar a monitorar</p>
+                </div>
+            </div>
+        </main>
+
+        <!-- Template para os Cards das Ações (invisível) -->
+        <template id="stock-card-template">
+            <article class="stock-card" data-symbol="">
+                <div class="card-header">
+                    <div class="stock-info">
+                        <h3 class="stock-symbol">SYMBOL</h3>
+                        <p class="stock-name">Nome da Empresa</p>
+                    </div>
+                    <button class="btn-remove" aria-label="Remover ação">×</button>
+                </div>
+                
+                <div class="card-body">
+                    <div class="price-section">
+                        <div class="current-price">
+                            <span class="price">R$ 0,00</span>
+                            <span class="change positive">+0.00 (0.00%)</span>
+                        </div>
+                        <div class="price-indicator">
+                            <div class="indicator-icon">↗</div>
+                        </div>
+                    </div>
+                    
+                    <div class="details-grid">
+                        <div class="detail-item">
+                            <span class="label">Abertura</span>
+                            <span class="value open-price">R$ 0,00</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="label">Máxima</span>
+                            <span class="value high-price">R$ 0,00</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="label">Mínima</span>
+                            <span class="value low-price">R$ 0,00</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="label">Volume</span>
+                            <span class="value volume">0</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Área para o gráfico (será implementada depois) -->
+                    <div class="chart-placeholder">
+                        <p>Gráfico será carregado aqui...</p>
+                    </div>
+                </div>
+                
+                <div class="card-footer">
+                    <span class="last-updated">Atualizado agora</span>
+                    <button class="btn-update">Atualizar</button>
+                </div>
+            </article>
+        </template>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>FinDash &copy; 2025 - Dados fornecidos por Alpha Vantage</p>
+            <p class="disclaimer">
+                <strong>Aviso:</strong> Este é um projeto demonstrativo. Os dados podem ter atraso e não devem ser usados para decisões de investimento real.
+            </p>
+        </footer>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="script.js" defer></script>
+</body>
+</html>
